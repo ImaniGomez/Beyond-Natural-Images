@@ -1,0 +1,111 @@
+## Goals: 
+* Compare three types of models
+1. CNN models → ESRGAN, EDSR
+2. Transformer models → SwinIR
+3. Diffusion models → SR3 or Stable Diffusion Upscaler
+* Expected Findings: 
+    * best detail?
+    * fastest?
+    * how they differ in artifacts/sharpness?
+
+### STEP 0: Setup
+- [x] Form a GitHub repo for your group project
+- [x] Set up a clear folder structure:
+
+project/
+├── src/          # scripts for running models
+├── notebooks/    # exploratory work
+├── data/         # datasets (or links to download)
+├── results/      # outputs & logs
+├── environment.yml
+└── README.md
+- [x] Write an initial README with setup instructions
+- [ ] Create environment.yml for reproducible conda environment
+- [x] Decide which models and datasets to include first for prototyping
+- [x] Create a minimal benchmark script (benchmark.py) that runs any model on any input
+
+### STEP 1: Prototype Locally
+- [x] Test a small model on a single image
+    - [x] Suggested: ResNet-18 (easy, pretrained)
+- [x] Measure inference time and output shape
+- [x] Test on a few sample images from Natural / Scenic domain
+- [x] Ensure code runs on your local machine without errors
+- [x] Push code to GitHub for group members
+
+### STEP 2: Add Real Models for Tasks
+Three tasks:
+1. Super-Resolution
+    - [ ] CNN: ESRGAN / EDSR
+    - [ ] Transformer: SwinIR
+    - [ ] Diffusion: SR3 or Stable Diffusion Upscaler
+2. Denoising
+    - [ ] CNN: DnCNN
+    - [ ] Transformer: Uformer
+    - [ ] Diffusion: Noise-to-Image diffusion
+- [ ] Add code to load and run each model
+- [ ] Test each model on Natural / Scenic domain first
+- [ ] Confirm outputs are saved in results/<model>/<domain>/
+
+### STEP 3: Prepare Datasets
+- [ ] Gather example images from each domain:
+    - [ ] Astronomy / Night Sky: DIV2K, Flickr2K
+    - [ ] Text / Document: TextZoom
+    - [ ] other options if others dont work: Nature, Humans, anime/manga datasets
+- [ ] Make scripts to preprocess images (resize, normalize)
+- [ ] Store dataset paths in a config file
+
+### STEP 4: Local Benchmarking & Metrics
+- [ ] Implement core metrics:
+    - [ ] pip install
+- [ ] Implement domain-specific metrics:
+    - [ ] OCR accuracy for text
+    - [ ] Star-count consistency for astronomy
+- [ ] Test these metrics on a few images locally to verify correctness
+
+### STEP 5: Move to HPC
+- [ ] Log in to HPC, create project folder
+- [ ] Clone GitHub repo
+- [ ] Install environment using environment.yml
+- [ ] Upload datasets (or link to shared HPC storage)
+- [ ] Write SLURM job scripts for running models on GPU(s)
+- [ ] Test SLURM jobs with a few images first
+
+### STEP 6: Full Experiments - off the shelf
+- [ ] Run all models on all domains (start with small batch)
+- [ ] Record:
+    - [ ] PSNR / SSIM / LPIPS
+    - [ ] Domain-specific metrics
+    - [ ] Runtime
+    - [ ] GPU memory usage
+- [ ] Scale up experiments to full dataset
+- [ ] Save outputs in results/<model>/<domain>/
+
+### STEP 7: Analyze Results
+- [ ] Compute Cross-Domain Drop (CDD):
+
+CDD = (in-domain metric - out-of-domain metric) / in-domain metric
+- [ ] Visualize results:
+    - [ ] Bar plots for metrics per model/domain
+    - [ ] Example before/after images
+- [ ] Identify failure patterns:
+    - [ ] Which models fail on which domains
+    - [ ] Where diffusion/transformers outperform CNNs
+
+### STEP 8: Report & Presentation
+- [ ] Write final report:
+    - [ ] Introduction & Motivation
+    - [ ] Methods (models, tasks, datasets)
+    - [ ] Results & Visualizations
+    - [ ] Analysis & Key Insights
+    - [ ] Conclusion & Future Work
+- [ ] Prepare presentation slides with:
+    - [ ] Clear visuals of model outputs
+    - [ ] Summary of metrics and cross-domain generalization
+
+### STEP 9: 
+Submission Checklist
+- [ ] GitHub repo updated with final code & README
+- [ ] All scripts tested on HPC
+- [ ] All results and plots saved in results/
+- [ ] Report finalized and proofread
+- [ ] Presentation ready
