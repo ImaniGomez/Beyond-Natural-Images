@@ -1,0 +1,33 @@
+name: beyond-natural-images
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - torchaudio
+  - numpy
+  - scipy
+  - pillow
+  - matplotlib
+  - scikit-image
+  - opencv
+  - pandas
+  - tqdm
+  - pyyaml
+  - jupyterlab
+  - ipykernel
+  - tensorboard
+  - pip
+
+  - pip:
+      - diffusers
+      - transformers
+      - accelerate
+      - einops
+      - lpips
+      - pytesseract
+      - rich
