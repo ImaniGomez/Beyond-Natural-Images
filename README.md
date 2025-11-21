@@ -32,14 +32,51 @@ We care about:
 Beyond-Natural-Images/
 ├── src/
 │   ├── __init__.py
-│   ├── benchmark.py        # unified CLI to run any model on any image
+│   ├── benchmark.py              # unified CLI to run any model on any image
+│   ├── models/                   # baseline + real SR/Denoising models
+│   │   ├── __init__.py
+│   │   └── basic_models.py
 │   └── utils/
 │       ├── __init__.py
-│       └── image_io.py     # image loading / saving helpers
-├── notebooks/              # exploratory analysis & prototyping
-├── data/
-│   └── README.md           # notes on datasets / download scripts
-├── results/
-│   └── README.md           # notes on where outputs & logs are stored
-├── environment.yml         # conda environment for reproducibility
-└── README.md               # this file
+│       └── image_io.py           # image loading / preprocessing helpers
+│
+├── data/                         # datasets (NOT stored in GitHub)
+│   ├── natural/
+│   │   ├── div2k/
+│   │   │   ├── HR/
+│   │   │   └── LR_bicubic/
+│   │   └── bsd/
+│   │       ├── BSD68/
+│   │       └── Set12/
+│   │
+│   ├── text/
+│   │   ├── textzoom/
+│   │   ├── synthetic_clean/
+│   │   └── synthetic_noisy/
+│   │
+│   ├── astronomy/
+│   │   ├── hubble/
+│   │   └── deepsky/
+│   │
+│   ├── download_scripts/         # dataset download scripts (HPC-friendly)
+│   │   ├── download_div2k.py
+│   │   ├── download_bsd68.py
+│   │   ├── download_deepsky.py
+│   │   ├── download_hubble.py
+│   │   └── download_textzoom.py
+│   │
+│   ├── preprocess/               # scripts to generate LR, noisy text, cleanup
+│   │   ├── generate_LR_div2k.py
+│   │   ├── make_text_synthetic.py
+│   │   └── astro_cleanup.py
+│   │
+│   └── README.md                 # dataset documentation
+│
+├── results/                      # saved outputs, logs, metrics
+│   └── README.md
+│
+├── notebooks/                    # prototyping / EDA
+│
+├── environment.yml               # local environment (Mac: CPU)
+│
+└── README.md                     # project overview
